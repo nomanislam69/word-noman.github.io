@@ -6,6 +6,8 @@ services:
     image: nginx:stable-alpine
     ports:
       - 80:80
+    volumes:
+      - ./wordpress:/var/www/html:delegated
   
   mysql:
     image: mysql:latest
@@ -17,3 +19,5 @@ services:
   
   php:
     image: php:7.4-fpm-alpine
+    volumes:
+      - ./wordpress:/var/www/html:delegated
